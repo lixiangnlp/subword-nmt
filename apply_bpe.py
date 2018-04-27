@@ -335,5 +335,5 @@ if __name__ == '__main__':
 
     bpe = BPE(args.codes, args.merges, args.separator, vocabulary, args.glossaries)
 
-    for line in args.input:
+    for line in args.input.read().replace('\r\n', '\n').replace('\r', ' '):
         args.output.write(bpe.process_line(line))
